@@ -127,37 +127,37 @@ export const services: ServiceItem[] = [
       'Snappy, high-retention pacing',
     ],
   },
-  {
-    id: 'captions-and-subtitles',
-    title: 'Captions and Subtitles',
-    description:
-      'Accurate, well-formatted on-screen captions styled for silent-scrolling readability without blocking important video details.',
-    deliverables: [
-      'Synchronized text timing',
-      'Clean typography & brand consistency',
-      'Keyword highlights for scanning',
-    ],
-  },
-  {
-    id: 'b-roll-integration',
-    title: 'B-Roll Integration',
-    description:
-      'Contextual visual cutaways, screen captures, and imagery that clarify abstract concepts and give the viewer visual variety.',
-    deliverables: [
-      'Paced overlay cutaways',
-      'Visual support for spoken concepts',
-      'Smooth motion transitions',
-    ],
-  },
-  {
-    id: 'audio-cleanup',
-    title: 'Basic Audio Cleanup and Pacing',
-    description:
-      'Essential dialogue conditioning to ensure the listener hears clear, consistent sound without harsh spikes or distracting background hum.',
-    deliverables: [
-      'Background noise attenuation',
-      'Consistent loudness & leveling',
-      'Breath and pop smoothing',
-    ],
-  },
+  // {
+  //   id: 'captions-and-subtitles',
+  //   title: 'Captions and Subtitles',
+  //   description:
+  //     'Accurate, well-formatted on-screen captions styled for silent-scrolling readability without blocking important video details.',
+  //   deliverables: [
+  //     'Synchronized text timing',
+  //     'Clean typography & brand consistency',
+  //     'Keyword highlights for scanning',
+  //   ],
+  // },
+  // {
+  //   id: 'b-roll-integration',
+  //   title: 'B-Roll Integration',
+  //   description:
+  //     'Contextual visual cutaways, screen captures, and imagery that clarify abstract concepts and give the viewer visual variety.',
+  //   deliverables: [
+  //     'Paced overlay cutaways',
+  //     'Visual support for spoken concepts',
+  //     'Smooth motion transitions',
+  //   ],
+  // },
+  // {
+  //   id: 'audio-cleanup',
+  //   title: 'Basic Audio Cleanup and Pacing',
+  //   description:
+  //     'Essential dialogue conditioning to ensure the listener hears clear, consistent sound without harsh spikes or distracting background hum.',
+  //   deliverables: [
+  //     'Background noise attenuation',
+  //     'Consistent loudness & leveling',
+  //     'Breath and pop smoothing',
+  //   ],
+  // },
 ];

@@ -13,7 +13,7 @@ export const siteConfig: SiteConfig = {
     'Portfolio of PK Edits. Specialized in podcast editing and talking-head videos with thoughtful pacing, clean cuts, and purposeful storytelling.',
   
   // Update this to your real Vercel URL or custom domain once deployed
-  url: 'https://pkedits.vercel.app',
+  url: 'https://portfolio-liard-six-gowco190rv.vercel.app',
 
   author: {
     name: 'PK Edits',
