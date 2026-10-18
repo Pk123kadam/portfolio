@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="hero-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0d13" />
+      <stop offset="45%" stop-color="#111622" />
+      <stop offset="100%" stop-color="#182030" />
+    </linearGradient>
+    <pattern id="grid-pattern-hero" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M 48 0 L 0 0 0 48" fill="none" stroke="rgba(255,255,255,0.025)" stroke-width="1" />
+    </pattern>
+    <filter id="hero-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="40" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="1280" height="720" fill="url(#hero-bg)" />
+  <rect width="1280" height="720" fill="url(#grid-pattern-hero)" />
+
+  <!-- Ambient Light Core -->
+  <circle cx="640" cy="340" r="320" fill="#2563eb" opacity="0.16" filter="url(#hero-glow)" />
+  <circle cx="280" cy="200" r="200" fill="#38bdf8" opacity="0.08" filter="url(#hero-glow)" />
+
+  <!-- Cinema Frame Border -->
+  <rect x="36" y="36" width="1208" height="648" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="1" />
+
+  <!-- Top Cinema Header -->
+  <g transform="translate(64, 70)">
+    <circle cx="6" cy="6" r="5" fill="#ef4444" />
+    <text x="22" y="10" fill="#ffffff" font-family="system-ui, sans-serif" font-size="11" font-weight="700" letter-spacing="1">PREVIEW ACTIVE</text>
+    <text x="170" y="10" fill="#64748b" font-family="system-ui, sans-serif" font-size="11" font-weight="600" letter-spacing="1.5">MASTER SEQUENCE • PRORES 422 HQ</text>
+    <text x="1060" y="10" fill="#93c5fd" font-family="monospace" font-size="13" font-weight="700">23.976 FPS</text>
+  </g>
+
+  <!-- Central Multi-Track Video Timeline Graphic -->
+  <g transform="translate(140, 160)">
+    <!-- Video Track V2 (B-Roll) -->
+    <g transform="translate(0, 0)">
+      <rect width="1000" height="60" rx="4" fill="#131926" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
+      <text x="16" y="35" fill="#64748b" font-family="system-ui, sans-serif" font-size="10" font-weight="700">V2 (B-ROLL)</text>
+      <rect x="220" y="8" width="180" height="44" rx="3" fill="rgba(56, 189, 248, 0.25)" stroke="#38bdf8" stroke-width="1" />
+      <text x="235" y="34" fill="#e0f2fe" font-family="system-ui, sans-serif" font-size="10" font-weight="600">Cutaway_Graph_01</text>
+      
+      <rect x="620" y="8" width="220" height="44" rx="3" fill="rgba(56, 189, 248, 0.25)" stroke="#38bdf8" stroke-width="1" />
+      <text x="635" y="34" fill="#e0f2fe" font-family="system-ui, sans-serif" font-size="10" font-weight="600">ScreenCapture_Demo</text>
+    </g>
+
+    <!-- Video Track V1 (Main A-Roll) -->
+    <g transform="translate(0, 75)">
+      <rect width="1000" height="85" rx="4" fill="#161e2e" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+      <text x="16" y="47" fill="#64748b" font-family="system-ui, sans-serif" font-size="10" font-weight="700">V1 (A-ROLL)</text>
+      <!-- Clip 1 -->
+      <rect x="120" y="8" width="260" height="69" rx="3" fill="rgba(37, 99, 235, 0.35)" stroke="#3b82f6" stroke-width="1.2" />
+      <text x="135" y="47" fill="#ffffff" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Interview_CamA_Take2</text>
+      <!-- Clip 2 -->
+      <rect x="390" y="8" width="240" height="69" rx="3" fill="rgba(37, 99, 235, 0.35)" stroke="#3b82f6" stroke-width="1.2" />
+      <text x="405" y="47" fill="#ffffff" font-family="system-ui, sans-serif" font-size="12" font-weight="600">PunchIn_CamB_Angle</text>
+      <!-- Clip 3 -->
+      <rect x="640" y="8" width="310" height="69" rx="3" fill="rgba(37, 99, 235, 0.35)" stroke="#3b82f6" stroke-width="1.2" />
+      <text x="655" y="47" fill="#ffffff" font-family="system-ui, sans-serif" font-size="12" font-weight="600">KeyTakeaway_Final</text>
+    </g>
+
+    <!-- Audio Track A1 & A2 (Clean Dialogue & Room Tone) -->
+    <g transform="translate(0, 175)">
+      <rect width="1000" height="95" rx="4" fill="#111622" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
+      <text x="16" y="52" fill="#64748b" font-family="system-ui, sans-serif" font-size="10" font-weight="700">A1 (AUDIO)</text>
+      <path d="M 120 48 Q 140 18 160 48 T 200 48 T 240 15 T 280 75 T 320 20 T 360 48 T 400 15 T 440 65 T 480 30 T 520 48 T 560 18 T 600 70 T 640 48 T 680 15 T 720 70 T 760 30 T 800 48 T 840 20 T 880 75 T 920 48" fill="none" stroke="#60a5fa" stroke-width="2" opacity="0.8" />
+    </g>
+  </g>
+
+  <!-- Editorial Info Center Left -->
+  <g transform="translate(80, 550)">
+    <rect x="0" y="0" width="220" height="28" rx="4" fill="rgba(59, 130, 246, 0.15)" stroke="rgba(59, 130, 246, 0.4)" stroke-width="1" />
+    <text x="14" y="19" fill="#93c5fd" font-family="system-ui, sans-serif" font-size="12" font-weight="600" letter-spacing="1">FEATURED EDIT SHOWCASE</text>
+    <text x="0" y="68" fill="#f8fafc" font-family="system-ui, -apple-system, sans-serif" font-size="34" font-weight="700" letter-spacing="-0.5">Your Footage. A Story Worth Watching.</text>
+    <text x="0" y="98" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="15" font-weight="400">Click to preview sample edit • Replaceable with your YouTube or MP4 link</text>
+  </g>
+
+  <!-- Center Play Button Overlay -->
+  <g transform="translate(640, 360)">
+    <circle cx="0" cy="0" r="54" fill="rgba(15, 23, 42, 0.85)" stroke="rgba(255, 255, 255, 0.2)" stroke-width="1.5" />
+    <circle cx="0" cy="0" r="44" fill="#2563eb" />
+    <!-- Triangle -->
+    <polygon points="-8,-14 16,0 -8,14" fill="#ffffff" />
+  </g>
+</svg>

@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="bg-grad-2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090b10" />
+      <stop offset="50%" stop-color="#10141d" />
+      <stop offset="100%" stop-color="#141926" />
+    </linearGradient>
+    <pattern id="grid-pattern-2" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.02)" stroke-width="1" />
+    </pattern>
+    <filter id="soft-glow-2" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="35" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="1280" height="720" fill="url(#bg-grad-2)" />
+  <rect width="1280" height="720" fill="url(#grid-pattern-2)" />
+
+  <!-- Ambient Light -->
+  <circle cx="340" cy="220" r="260" fill="#2563eb" opacity="0.14" filter="url(#soft-glow-2)" />
+  <circle cx="980" cy="460" r="240" fill="#0284c7" opacity="0.1" filter="url(#soft-glow-2)" />
+
+  <!-- Outer Frame -->
+  <rect x="40" y="40" width="1200" height="640" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
+  
+  <!-- Corner Marks -->
+  <path d="M 40 70 L 40 40 L 70 40" fill="none" stroke="#60a5fa" stroke-width="2" />
+  <path d="M 1240 70 L 1240 40 L 1210 40" fill="none" stroke="#60a5fa" stroke-width="2" />
+  <path d="M 40 650 L 40 680 L 70 680" fill="none" stroke="#60a5fa" stroke-width="2" />
+  <path d="M 1240 650 L 1240 680 L 1210 680" fill="none" stroke="#60a5fa" stroke-width="2" />
+
+  <!-- Top Metadata Bar -->
+  <text x="80" y="80" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" letter-spacing="3">PK EDITS • MULTI-CAMERA SWITCH</text>
+  <text x="1100" y="80" fill="#60a5fa" font-family="monospace" font-size="14" font-weight="700" letter-spacing="1">00:09:45:18</text>
+
+  <!-- Multi-Cam Angle Preview Windows -->
+  <g transform="translate(140, 150)">
+    <!-- Cam A: Wide Shot -->
+    <g transform="translate(0, 0)">
+      <rect width="460" height="230" rx="8" fill="#141822" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+      <text x="20" y="32" fill="#64748b" font-family="system-ui, sans-serif" font-size="11" font-weight="700" letter-spacing="1.5">CAM A • WIDE ANGLE</text>
+      <!-- Stylized Studio Studio Setup -->
+      <circle cx="160" cy="125" r="32" fill="rgba(255,255,255,0.05)" />
+      <circle cx="300" cy="125" r="32" fill="rgba(255,255,255,0.05)" />
+      <rect x="210" y="100" width="40" height="55" rx="4" fill="rgba(59, 130, 246, 0.15)" stroke="rgba(59, 130, 246, 0.3)" stroke-width="1" />
+      <!-- Mic symbol -->
+      <path d="M 230 115 L 230 140 M 222 140 L 238 140" stroke="#93c5fd" stroke-width="2" />
+      <circle cx="430" cy="28" r="4" fill="#64748b" />
+    </g>
+
+    <!-- Cam B: Active Speaker Close-up (Selected Cut) -->
+    <g transform="translate(520, 0)">
+      <rect width="480" height="230" rx="8" fill="#161c28" stroke="#3b82f6" stroke-width="1.5" />
+      <rect x="16" y="16" width="60" height="20" rx="3" fill="#ef4444" />
+      <text x="26" y="30" fill="#ffffff" font-family="system-ui, sans-serif" font-size="10" font-weight="800" letter-spacing="1">LIVE</text>
+      <text x="86" y="30" fill="#93c5fd" font-family="system-ui, sans-serif" font-size="11" font-weight="700" letter-spacing="1.5">CAM B • GUEST PUNCH-IN</text>
+      
+      <!-- Audio Peak Indicator in Top Corner -->
+      <g transform="translate(420, 20)">
+        <rect x="0" y="0" width="3" height="12" fill="#22c55e" />
+        <rect x="5" y="0" width="3" height="12" fill="#22c55e" />
+        <rect x="10" y="2" width="3" height="10" fill="#22c55e" />
+        <rect x="15" y="5" width="3" height="7" fill="#eab308" />
+      </g>
+      <!-- Stylized Close-up Silhouette -->
+      <circle cx="240" cy="100" r="42" fill="rgba(59, 130, 246, 0.2)" />
+      <path d="M 170 190 Q 240 145 310 190 Z" fill="rgba(59, 130, 246, 0.15)" />
+      <!-- Focus Reticle -->
+      <circle cx="240" cy="115" r="28" fill="none" stroke="rgba(96, 165, 250, 0.4)" stroke-width="1" stroke-dasharray="3 3" />
+      <path d="M 230 115 L 250 115 M 240 105 L 240 125" stroke="#60a5fa" stroke-width="1.5" />
+    </g>
+  </g>
+
+  <!-- Editorial Title Card Overlay -->
+  <g transform="translate(80, 560)">
+    <rect x="0" y="0" width="168" height="28" rx="4" fill="rgba(59, 130, 246, 0.15)" stroke="rgba(59, 130, 246, 0.4)" stroke-width="1" />
+    <text x="14" y="19" fill="#93c5fd" font-family="system-ui, sans-serif" font-size="12" font-weight="600" letter-spacing="1">PODCAST EDITING</text>
+    <text x="0" y="70" fill="#f8fafc" font-family="system-ui, -apple-system, sans-serif" font-size="36" font-weight="700" letter-spacing="-0.5">Podcast Edit 02</text>
+    <text x="0" y="98" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="15" font-weight="400">Maintaining engagement &amp; natural conversational flow</text>
+  </g>
+
+  <!-- Timeline Playhead & Ruler at Bottom -->
+  <g transform="translate(80, 660)">
+    <line x1="0" y1="0" x2="1120" y2="0" stroke="rgba(255,255,255,0.12)" stroke-width="1" />
+    <polygon points="680,-12 675,-2 680,0 685,-2" fill="#60a5fa" />
+    <line x1="680" y1="0" x2="680" y2="-450" stroke="#60a5fa" stroke-width="1.5" opacity="0.3" />
+  </g>
+</svg>
