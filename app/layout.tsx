@@ -24,6 +24,8 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   keywords: [
     'Video Editor',
+    'DaVinci Resolve Editor',
+    'DaVinci Resolve',
     'Podcast Editing',
     'Talking-Head Editor',
     'A-Roll Editing',
@@ -87,6 +89,7 @@ export default function RootLayout({
     telephone: `+${siteConfig.author.whatsappNumber}`,
     knowsAbout: [
       'Video Editing',
+      'DaVinci Resolve Post-Production',
       'Podcast Post-Production',
       'Talking-Head Content',
       'Audio Cleanup and Pacing',

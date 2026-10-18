@@ -6,6 +6,7 @@ import Hero from '@/components/Hero';
 import SelectedWork from '@/components/SelectedWork';
 import Services from '@/components/Services';
 import About from '@/components/About';
+import Tools from '@/components/Tools';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import VideoModal from '@/components/VideoModal';
@@ -57,6 +58,8 @@ export default function Home() {
         <Services />
 
         <About />
+
+        <Tools />
 
         <Contact />
       </main>

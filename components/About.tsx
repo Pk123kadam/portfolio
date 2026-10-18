@@ -37,7 +37,7 @@ export default function About() {
 
             <div className="mt-6 space-y-4 text-base sm:text-lg text-zinc-300 leading-relaxed">
               <p>
-                I&apos;m an aspiring video editor focused on making content feel clear, engaging, and intentional. I enjoy working on podcast and talking-head videos, refining pacing, removing distractions, and helping the main message come through.
+                I&apos;m an aspiring video editor focused on making content feel clear, engaging, and intentional. Working primarily in <strong className="text-white font-semibold">DaVinci Resolve</strong>, I enjoy editing podcast and talking-head videos—refining pacing, removing distractions, and helping the main message come through.
               </p>
               <p className="text-zinc-400 text-base">
                 I&apos;m building my portfolio through practice, collaboration, and meaningful projects. Rather than overwhelming videos with unnecessary transitions or flashiness, my priority is rhythm, narrative coherence, and keeping viewers focused on what the speaker is saying.
