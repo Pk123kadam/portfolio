@@ -30,20 +30,48 @@ import { Project, ServiceItem } from '@/src/types';
  * without crashing or showing a broken screen.
  */
 export const projects: Project[] = [
+   {
+    id: 'talking-head-01',
+    title: 'Talking-Head Edit 01',
+    category: 'talking-head',
+    categoryLabel: 'A-Roll / Talking-Head',
+    description:
+      'Purposeful jump-cuts, micro-pause removal, and crisp visual rhythm that keeps single-speaker education engaging and tight.',
+    provider: 'youtube',
+    videoId: 'https://www.youtube.com/watch?v=-2SRXvFteqE',
+    poster: '/images/editing.png',
+    duration: '0:41',
+    featured: true,
+    tag: 'Solo A-Roll',
+  },
+  {
+    id: 'talking-head-02',
+    title: 'Talking-Head Edit 02  (Vertical Edit)',
+    category: 'talking-head',
+    categoryLabel: 'A-Roll / Talking-Head',
+    description:
+      'Integrating supporting visuals, subtle punch-ins, and graphics designed to hold attention throughout technical explanations.',
+    provider: 'youtube',
+    videoId: 'https://youtu.be/Oy5Gm4_gf1E?si=yEuC7LxwxMqr9a7h',
+    poster: '/images/recap.png',
+    duration: '0:38',
+    featured: false,  
+     tag: 'Solo A-Roll',
+  },
   {
     id: 'podcast-edit-01',
-    title: 'Podcast Edit 01',
+    title: 'Podcast Edit 01  (Vertical Edit)',
     category: 'podcast',
     categoryLabel: 'Podcast Editing',
     description:
       'Conversational pacing, dialogue smoothing, and clean cuts that eliminate dead air while preserving natural speech cadence.',
     provider: 'youtube',
     // Paste your YouTube video ID below (e.g., 'dQw4w9WgXcQ'). Leave blank to show the designed placeholder.
-    videoId: '',
-    poster: '/images/podcast-edit-01.svg',
-    duration: '14:20',
-    featured: true,
-    tag: 'Long-Form Conversation',
+    videoId: 'https://youtu.be/UPu1P9mrCHk?si=FPU-7BPxweWD6N_p',
+    poster: '/images/ritesh.png',
+    duration: '0:29',
+    featured: false,
+    tag: 'Interview & Commentary',
   },
   {
     id: 'podcast-edit-02',
@@ -53,40 +81,13 @@ export const projects: Project[] = [
     description:
       'Engagement retention, dynamic visual emphasis, and smooth thematic transitions for multi-topic interview formats.',
     provider: 'youtube',
-    videoId: '',
-    poster: '/images/podcast-edit-02.svg',
-    duration: '09:45',
+    videoId: 'https://youtu.be/jRxF-jtczVU?si=HieiqGp3aLxGll4i',
+    poster: '/images/zomato.png',
+    duration: '0:28',
     featured: false,
     tag: 'Interview & Commentary',
   },
-  {
-    id: 'talking-head-01',
-    title: 'Talking-Head Edit 01',
-    category: 'talking-head',
-    categoryLabel: 'A-Roll / Talking-Head',
-    description:
-      'Purposeful jump-cuts, micro-pause removal, and crisp visual rhythm that keeps single-speaker education engaging and tight.',
-    provider: 'youtube',
-    videoId: '',
-    poster: '/images/talking-head-01.svg',
-    duration: '04:30',
-    featured: false,
-    tag: 'Educational & Solo A-Roll',
-  },
-  {
-    id: 'talking-head-02',
-    title: 'Talking-Head Edit 02',
-    category: 'talking-head',
-    categoryLabel: 'A-Roll / Talking-Head',
-    description:
-      'Integrating supporting visuals, subtle punch-ins, and graphics designed to hold attention throughout technical explanations.',
-    provider: 'youtube',
-    videoId: '',
-    poster: '/images/talking-head-02.svg',
-    duration: '06:15',
-    featured: false,
-    tag: 'Explainer & B-Roll Mix',
-  },
+ 
 ];
 
 /**

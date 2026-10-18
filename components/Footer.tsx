@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { siteConfig } from '@/src/config/site';
 
 interface FooterProps {
@@ -9,7 +10,31 @@ interface FooterProps {
 
 export default function Footer({ year = 2026 }: FooterProps) {
   const scrollToTop = () => {
+    if (window.location.pathname !== '/') {
+      window.history.pushState(null, '', '/');
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    if (href === '/' || href === '#' || !href) {
+      if (window.location.pathname !== '/') {
+        window.history.pushState(null, '', '/');
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    const cleanPath = href.startsWith('/') ? href : `/${href.replace('#', '')}`;
+    const targetId = cleanPath.replace('/', '');
+
+    window.history.pushState(null, '', cleanPath);
+
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
@@ -29,13 +54,14 @@ export default function Footer({ year = 2026 }: FooterProps) {
           {/* Nav Links */}
           <nav aria-label="Footer navigation" className="flex flex-wrap justify-center gap-6 text-xs text-zinc-400">
             {siteConfig.navigation.map((item) => (
-              <a
+              <Link
                 key={item.href}
                 href={item.href}
+                onClick={(e) => handleScrollTo(e, item.href)}
                 className="hover:text-white transition-colors"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
           </nav>
 

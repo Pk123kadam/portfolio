@@ -82,16 +82,43 @@ export default function VideoModal({
     return false;
   })();
 
+  // Helper to extract YouTube video ID from either a full URL or raw ID
+  const extractYouTubeId = (input: string): string => {
+    const trimmed = input.trim();
+    if (/^[a-zA-Z0-9_-]{11}$/.test(trimmed)) {
+      return trimmed;
+    }
+    const match = trimmed.match(
+      /(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=|shorts\/))([a-zA-Z0-9_-]{11})/
+    );
+    if (match && match[1]) {
+      return match[1];
+    }
+    return trimmed.replace(/[^a-zA-Z0-9_-]/g, '');
+  };
+
+  const extractVimeoId = (input: string): string => {
+    const trimmed = input.trim();
+    const match = trimmed.match(/vimeo\.com\/(?:video\/)?(\d+)/);
+    if (match && match[1]) {
+      return match[1];
+    }
+    return trimmed.replace(/[^0-9]/g, '');
+  };
+
   // Sanitize YouTube/Vimeo embed URLs
   const getEmbedUrl = (): string | null => {
     if (project.provider === 'youtube' && project.videoId?.trim()) {
-      // Validate YouTube ID (alphanumeric, dashes, underscores)
-      const cleanId = project.videoId.trim().replace(/[^a-zA-Z0-9_-]/g, '');
-      return `https://www.youtube-nocookie.com/embed/${cleanId}?autoplay=1&rel=0&modestbranding=1`;
+      const cleanId = extractYouTubeId(project.videoId);
+      if (cleanId) {
+        return `https://www.youtube-nocookie.com/embed/${cleanId}?autoplay=1&rel=0&modestbranding=1`;
+      }
     }
     if (project.provider === 'vimeo' && project.videoId?.trim()) {
-      const cleanId = project.videoId.trim().replace(/[^0-9]/g, '');
-      return `https://player.vimeo.com/video/${cleanId}?autoplay=1&title=0&byline=0&portrait=0`;
+      const cleanId = extractVimeoId(project.videoId);
+      if (cleanId) {
+        return `https://player.vimeo.com/video/${cleanId}?autoplay=1&title=0&byline=0&portrait=0`;
+      }
     }
     return null;
   };

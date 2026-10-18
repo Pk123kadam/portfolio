@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import SelectedWork from '@/components/SelectedWork';
@@ -20,6 +20,34 @@ export default function Home() {
 
   const featuredProject = projects.find((p) => p.featured) || projects[0];
 
+  useEffect(() => {
+    const scrollToPath = (path: string) => {
+      const clean = path.replace('/', '');
+      if (!clean) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
+      const element = document.getElementById(clean);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+
+    if (window.location.pathname !== '/') {
+      const timer = setTimeout(() => {
+        scrollToPath(window.location.pathname);
+      }, 150);
+      return () => clearTimeout(timer);
+    }
+
+    const handlePopState = () => {
+      scrollToPath(window.location.pathname);
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
   const handleOpenVideo = (project: Project, el: HTMLElement) => {
     setActiveProject(project);
     setTriggerEl(el);
@@ -35,6 +63,10 @@ export default function Home() {
       {/* Accessible Skip Link */}
       <a
         href="#main-content"
+        onClick={(e) => {
+          e.preventDefault();
+          document.getElementById('main-content')?.scrollIntoView({ behavior: 'smooth' });
+        }}
         className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-4 focus:left-4 focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded focus:outline-none"
       >
         Skip to main content

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
+import Link from 'next/link';
 import { siteConfig } from '@/src/config/site';
 
 interface MobileNavProps {
@@ -41,6 +42,28 @@ export default function MobileNav({ isOpen, onClose }: MobileNavProps) {
 
   if (!isOpen) return null;
 
+  const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    onClose();
+    if (href === '/' || href === '#' || !href) {
+      if (window.location.pathname !== '/') {
+        window.history.pushState(null, '', '/');
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    const cleanPath = href.startsWith('/') ? href : `/${href.replace('#', '')}`;
+    const targetId = cleanPath.replace('/', '');
+
+    window.history.pushState(null, '', cleanPath);
+
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div
       id="mobile-navigation"
@@ -79,14 +102,14 @@ export default function MobileNav({ isOpen, onClose }: MobileNavProps) {
       <div className="flex flex-col flex-1 justify-between px-6 py-8 overflow-y-auto">
         <nav aria-label="Mobile primary navigation" className="flex flex-col space-y-6">
           {siteConfig.navigation.map((item) => (
-            <a
+            <Link
               key={item.href}
               href={item.href}
-              onClick={onClose}
+              onClick={(e) => handleScrollTo(e, item.href)}
               className="text-2xl font-semibold text-zinc-300 hover:text-white hover:translate-x-1 transition-all duration-200"
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -95,13 +118,13 @@ export default function MobileNav({ isOpen, onClose }: MobileNavProps) {
           <p className="text-xs uppercase tracking-widest text-zinc-400 font-medium">
             Let&apos;s collaborate
           </p>
-          <a
-            href="#contact"
-            onClick={onClose}
+          <Link
+            href="/contact"
+            onClick={(e) => handleScrollTo(e, '/contact')}
             className="inline-flex w-full items-center justify-center px-5 py-3 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-medium text-sm transition-colors"
           >
             Let&apos;s Work Together
-          </a>
+          </Link>
           <div className="flex flex-col text-xs text-zinc-400 space-y-1">
             <span>Email: {siteConfig.author.email}</span>
             <span>WhatsApp: +{siteConfig.author.whatsappNumber}</span>

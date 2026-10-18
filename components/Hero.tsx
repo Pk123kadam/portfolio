@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Project } from '@/src/types';
 import { siteConfig } from '@/src/config/site';
 
@@ -11,6 +12,19 @@ interface HeroProps {
 }
 
 export default function Hero({ featuredProject, onPlayFeatured }: HeroProps) {
+  const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const cleanPath = href.startsWith('/') ? href : `/${href.replace('#', '')}`;
+    const targetId = cleanPath.replace('/', '');
+
+    window.history.pushState(null, '', cleanPath);
+
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="relative pt-12 pb-20 sm:pt-20 sm:pb-28 overflow-hidden">
       {/* Background ambient glow effect */}
@@ -42,26 +56,28 @@ export default function Hero({ featuredProject, onPlayFeatured }: HeroProps) {
             </span>
           </h1>
           <p className="mt-5 text-lg sm:text-xl text-zinc-400 leading-relaxed max-w-2xl text-pretty">
-            I edit podcasts and talking-head videos into clear, engaging content with thoughtful pacing, clean cuts, and purposeful storytelling.
+          I create engaging video edits, from podcasts and talking-head content to cinematic travel stories and creative meme edits. My focus is on pacing, storytelling, and adding the right touch to make every video more engaging and enjoyable to watch.
           </p>
 
           {/* Action CTAs */}
           <div className="mt-8 flex flex-wrap items-center gap-4">
-            <a
-              href="#work"
+            <Link
+              href="/work"
+              onClick={(e) => handleScrollTo(e, '/work')}
               className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-medium text-sm transition-all shadow-lg shadow-blue-900/30 hover:shadow-blue-900/50 hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-blue-500"
             >
               Explore My Work
               <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
               </svg>
-            </a>
-            <a
-              href="#contact"
+            </Link>
+            <Link
+              href="/contact"
+              onClick={(e) => handleScrollTo(e, '/contact')}
               className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-[#141822] hover:bg-[#1a202c] text-zinc-200 hover:text-white font-medium text-sm border border-white/10 transition-all hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-blue-500"
             >
               Let&apos;s Talk
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -82,7 +98,7 @@ export default function Hero({ featuredProject, onPlayFeatured }: HeroProps) {
           >
             {/* Cinematic Poster Image */}
             <Image
-              src="/images/hero-preview.svg"
+              src="/images/editing.png"
               alt="Hero video editing preview showcase"
               fill
               priority

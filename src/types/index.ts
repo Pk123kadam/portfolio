@@ -35,6 +35,10 @@ export interface Project {
    * Short tag describing the format or style, e.g. "Long-Form Interview"
    */
   tag?: string;
+  /**
+   * Video aspect ratio: standard 16:9 (horizontal) or 9:16 (vertical/shorts)
+   */
+  aspectRatio?: '16:9' | '9:16';
 }
 
 export interface ServiceItem {

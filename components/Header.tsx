@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { siteConfig } from '@/src/config/site';
 import MobileNav from './MobileNav';
 
@@ -17,6 +18,27 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    if (href === '/' || href === '#' || !href) {
+      if (window.location.pathname !== '/') {
+        window.history.pushState(null, '', '/');
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    const cleanPath = href.startsWith('/') ? href : `/${href.replace('#', '')}`;
+    const targetId = cleanPath.replace('/', '');
+
+    window.history.pushState(null, '', cleanPath);
+
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <>
       <header
@@ -28,8 +50,9 @@ export default function Header() {
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Brand Wordmark */}
-          <a
-            href="#"
+          <Link
+            href="/"
+            onClick={(e) => handleScrollTo(e, '/')}
             className="group flex items-center gap-2.5 text-white font-bold tracking-tight text-xl focus-visible:ring-2 focus-visible:ring-blue-500 rounded"
             aria-label={`${siteConfig.name} - Return to top of page`}
           >
@@ -37,29 +60,31 @@ export default function Header() {
             <span className="text-zinc-100 group-hover:text-white transition-colors">
               {siteConfig.name}
             </span>
-          </a>
+          </Link>
 
           {/* Desktop Navigation Links */}
           <nav aria-label="Main navigation" className="hidden md:flex items-center gap-8">
             {siteConfig.navigation.map((item) => (
-              <a
+              <Link
                 key={item.href}
                 href={item.href}
+                onClick={(e) => handleScrollTo(e, item.href)}
                 className="text-sm font-medium text-zinc-400 hover:text-white transition-colors duration-150 focus-visible:ring-2 focus-visible:ring-blue-500 rounded px-1 py-0.5"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
           {/* Header Action Button (Desktop) */}
           <div className="hidden md:flex items-center gap-4">
-            <a
-              href="#contact"
+            <Link
+              href="/contact"
+              onClick={(e) => handleScrollTo(e, '/contact')}
               className="inline-flex items-center justify-center px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white bg-blue-600/90 hover:bg-blue-600 border border-blue-500/30 rounded-md shadow-sm transition-all duration-150 hover:shadow-blue-500/20 hover:shadow-md focus-visible:ring-2 focus-visible:ring-blue-500"
             >
               Let&apos;s work together
-            </a>
+            </Link>
           </div>
 
           {/* Mobile Menu Hamburger Button */}

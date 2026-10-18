@@ -3,23 +3,23 @@
 import React from 'react';
 
 export default function About() {
-  const principles = [
-    {
-      title: 'Pacing Over Gimmicks',
-      description:
-        'Good editing stays invisible until it counts. Every cut serves the natural flow of thought rather than filling empty space with noisy effects.',
-    },
-    {
-      title: 'Dialogue Intelligibility',
-      description:
-        'Podcasts and educational videos rely heavily on speech clarity. Removing distracting mouth noises, awkward pauses, and volume spikes makes listening effortless.',
-    },
-    {
-      title: 'Collaborative Iteration',
-      description:
-        'As an early-stage video editor, I value clear communication, prompt revisions, and learning creator preferences to deliver exactly what your audience needs.',
-    },
-  ];
+const principles = [
+  {
+    title: 'Every Cut Has a Purpose',
+    description:
+      'From cinematic travel edits to podcasts and creative meme videos, I focus on pacing, timing, and making every moment feel intentional.',
+  },
+  {
+    title: 'Storytelling Through Editing',
+    description:
+      'Whether it’s a talking-head video, a travel montage, or a podcast, I aim to bring the story to life through thoughtful cuts, visuals, and creative timing.',
+  },
+  {
+    title: 'Creative Collaboration',
+    description:
+      'I value clear communication, feedback, and continuous learning. Every project is an opportunity to understand the creator’s vision and turn ideas into engaging videos.',
+  },
+];
 
   return (
     <section id="about" className="py-20 sm:py-28 border-t border-white/[0.06] scroll-mt-20">
